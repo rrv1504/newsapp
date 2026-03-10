@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# NewsMonkey
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NewsMonkey is a React news application that fetches top headlines from NewsAPI and displays them category-wise with infinite scrolling.
+
+## Features
+
+- Browse headlines across `business`, `entertainment`, `general`, `health`, `science`, `sports`, and `technology`
+- Client-side routing with `react-router-dom`
+- Top loading bar while news is being fetched
+- Infinite scroll for loading more articles
+- Fallback image when an article image is missing or fails to load
+- Author and published date display for each article
+
+## Tech Stack
+
+- React
+- React Router
+- NewsAPI
+- Bootstrap
+- `react-infinite-scroll-component`
+- `react-top-loading-bar`
+- `react-loader-spinner`
+
+## Project Structure
+
+```text
+src/
+  App.js          App routes and loading bar
+  Navbar.js       Category navigation
+  News.js         News fetching and infinite scroll logic
+  NewsItem.js     Individual news card
+  LoaderComponent.js
+```
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Add environment variable
+
+Create a `.env.local` file in the project root:
+
+```env
+REACT_APP_NEWS_API=your_newsapi_key_here
+```
+
+This project reads the API key from `process.env.REACT_APP_NEWS_API`.
+
+### 3. Start the development server
+
+```bash
+npm start
+```
+
+Open `http://localhost:3000` in the browser.
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the test suite in watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production into the `build/` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Routes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `/` - General headlines
+- `/business`
+- `/entertainment`
+- `/general`
+- `/health`
+- `/science`
+- `/sports`
+- `/technology`
 
-### `npm run eject`
+## Notes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `.env.local` is ignored by Git, so your API key stays local.
+- News data depends on NewsAPI availability and response limits.
+- If an article image is unavailable, the app shows a default placeholder image.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Improvements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add search support
+- Add country and language filters
+- Improve API error handling
+- Add bookmarking or saved articles
+- Add better empty-state and no-results UI
